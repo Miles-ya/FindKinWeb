@@ -87,7 +87,15 @@
                             <tr>
                                 <td><%= post.getId() %></td>
                                 <td><%= post.getName() %></td>
-                                <td><%= post.getGender() %></td>
+                                <td>
+                                    <% if ("Male".equalsIgnoreCase(post.getGender())) { %>
+                                        男
+                                    <% } else if ("Female".equalsIgnoreCase(post.getGender())) { %>
+                                        女
+                                    <% } else { %>
+                                        <%= post.getGender() %>
+                                    <% } %>
+                                </td>
                                 <td><%= post.getAge() %></td>
                                 <td><%= post.getMissingLocation() %></td>
                                 <td><%= post.getMissingTime() %></td>

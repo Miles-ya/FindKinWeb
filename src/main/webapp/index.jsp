@@ -15,11 +15,12 @@
             padding-top: 56px;
         }
         .hero-section {
-            background: url('https://images.unsplash.com/photo-1524230659267-3992336a0327?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background: url('bg.jpg') no-repeat center center;
             background-size: cover;
             color: white;
             padding: 100px 0;
             text-align: center;
+            height: 400px;
         }
         .hero-section h1 {
             font-weight: 700;
@@ -199,7 +200,15 @@
                         <% } %>
                         <div class="card-body">
                             <h5 class="card-title"><%= person.getName() %></h5>
-                            <p class="card-text"><strong>性别:</strong> <%= person.getGender() %></p>
+                            <p class="card-text"><strong>性别:</strong>
+                                <% if ("Male".equalsIgnoreCase(person.getGender())) { %>
+                                    男
+                                <% } else if ("Female".equalsIgnoreCase(person.getGender())) { %>
+                                    女
+                                <% } else { %>
+                                    <%= person.getGender() %>
+                                <% } %>
+                            </p>
                             <p class="card-text"><strong>年龄:</strong> <%= person.getAge() %></p>
                             <p class="card-text"><strong>失踪地点:</strong> <%= person.getMissingLocation() %></p>
                             <p class="card-text"><strong>失踪时间:</strong> <%= person.getMissingTime() %></p>
